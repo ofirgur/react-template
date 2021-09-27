@@ -1,0 +1,19 @@
+{
+  "name": "react-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ofirgur/react-template.git"
+  },
+  "author": "ofirgur@yahoo.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ofirgur/react-template/issues"
+  },
+  "homepage": "https://github.com/ofirgur/react-template#readme"
+}
