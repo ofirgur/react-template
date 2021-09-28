@@ -17,3 +17,7 @@ ReactDOM.render(
 
 // 1. npm run build & webpack configuration
 // 2. react-router-dom refresh
+// 3. server side rendering ?
+// 4. recoil
+// 5. react hooks deep dive
+// 6. webpack deep div
