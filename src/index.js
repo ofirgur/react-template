@@ -1,15 +1,17 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom';
 
+import { store } from './redux/store'
 import App from './app';
 
 ReactDOM.render(
-    <BrowserRouter basename="/calendar">
-        <Link to="/today">Link Today</Link> {/* renders <a href="/calendar/today"></a> */}
-        <Route path="/today" component={() => <div>Route Today 1 #</div>} />
-        <App />
-    </BrowserRouter>, 
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>, 
     document.getElementById('app')
 );
 
@@ -25,3 +27,5 @@ ReactDOM.render(
 // 8. promises & async await
 // 9. react state deep dive
 // 10. linter & eslint-plugin-react-hooks 
+// 11. 
+// 12. 

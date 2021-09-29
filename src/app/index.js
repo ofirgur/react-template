@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { Counter } from './Counter';
+
 const App = () => {
     const [count, setCount] = useState(0);
 
@@ -16,6 +18,8 @@ const App = () => {
             Click me
           </button>
           <h1>This is my React app!</h1>
+          <br />
+          <Counter />
         </div>
       );
 };
