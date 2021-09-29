@@ -1,5 +1,4 @@
 import { connectRouter } from 'connected-react-router';
-
 import counterReducer from '../../app/Counter/counterSlice';
 
 const createRootReducer = history => ({
