@@ -19,5 +19,9 @@ ReactDOM.render(
 // 2. react-router-dom refresh
 // 3. server side rendering ?
 // 4. recoil
-// 5. react hooks deep dive
+// 5. react hooks deep dive // now! (custom hooks)
 // 6. webpack deep div
+// 7. react debugging
+// 8. promises & async await
+// 9. react state deep dive
+// 10. linter & eslint-plugin-react-hooks 
