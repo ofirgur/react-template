@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { LOCATION_CHANGE } from 'connected-react-router';
 
 const initialState = {
   value: 0,
 };
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const appSlice = createSlice({
+  name: 'app',
   initialState,
   reducers: {
     increment: (state) => {
@@ -22,9 +23,18 @@ export const counterSlice = createSlice({
       state.value += action.payload
     },
   },
+  extraReducers: (builder) => {
+    builder
+    .addDefaultCase((state, action) => {
+        switch(action.type) {
+            case LOCATION_CHANGE:
+                console.log('LOCATION_CHANGE')
+        }
+    });
+  }
 });
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount } = appSlice.actions;
 
-export default counterSlice.reducer;
+export default appSlice.reducer;
