@@ -1,27 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'connected-react-router';
 
-import { Counter } from './Counter';
+import { store, history } from '../redux/store';
+import Layout from '../layout';
 
 const App = () => {
-    const [count, setCount] = useState(0);
-
-    // Similar to componentDidMount and componentDidUpdate:
-    useEffect(() => {
-        // Update the document title using the browser API
-        document.title = `You clicked ${count} times`;
-    });
-
     return (
-        <div>
-          <p>You clicked {count} times</p>
-          <button onClick={() => setCount(count + 1)}>
-            Click me
-          </button>
-          <h1>This is my React app!</h1>
-          <br />
-          <Counter />
-        </div>
-      );
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <Layout />
+        </ConnectedRouter>
+      </Provider>
+    );
 };
 
 export default App;
