@@ -11,10 +11,8 @@ export const createApiAction = agent => {
                 data
             });
 
-            //const { data, status } = response; // { data, status, headers }
-            dispatch(action(response));
-            if(status === 200) {
-                
+            if(response.status === 200) {
+                dispatch(action(response.data));
             }         
         }
         catch (error) {
