@@ -1,5 +1,5 @@
 import { connectRouter } from 'connected-react-router';
-import appSlice from '../../app/appSlice';
+import appSlice from '../../app/slice';
 
 const createRootReducer = history => ({
     router: connectRouter(history),
