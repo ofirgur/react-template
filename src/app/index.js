@@ -14,7 +14,7 @@ const App = () => {
         method: 'GET',
         url: 'https://jsonplaceholder.typicode.com/users',
         data: {},
-        action: initialize
+        actions: [initialize]
       }));
     }, []);
 

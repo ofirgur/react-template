@@ -2,7 +2,7 @@ import axios from 'axios';
  
 export const createApiAction = agent => {
     return async dispatch => {
-        const { method, url, data, action } = agent;
+        const { method, url, data, actions } = agent;
 
         try {
             const response = await axios({
@@ -12,7 +12,9 @@ export const createApiAction = agent => {
             });
 
             if(response.status === 200) {
-                dispatch(action(response.data));
+                actions.forEach(action => {
+                    dispatch(action(response.data));
+                }); 
             }         
         }
         catch (error) {
