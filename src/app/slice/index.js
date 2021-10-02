@@ -6,7 +6,7 @@ export const appSlice = createSlice({
   initialState: {},
   reducers: {
     initialize: (state, action) => {
-      state.data = action.payload
+      state.data = action.payload;
     }
   },
   extraReducers: (builder) => {

@@ -1,20 +1,9 @@
 import axios from 'axios';
  
 export const createApiAction = agent => {
-    const { method, url, data } = agent;
-
     return async dispatch => {
-        // return axios({
-        //     method,
-        //     url,
-        //     data
-        // })
-        // .then(response => {
-        //     dispatch({ 
-        //         type: 'BLABLA',
-        //         response
-        //     });
-        // });
+        const { method, url, data, action } = agent;
+
         try {
             const response = await axios({
                 method,
@@ -22,16 +11,15 @@ export const createApiAction = agent => {
                 data
             });
 
-            dispatch({ 
-                type: 'BLABLA',
-                response
-            });
+            //const { data, status } = response; // { data, status, headers }
+            dispatch(action(response));
+            if(status === 200) {
+                
+            }         
         }
         catch (error) {
             //http request was failed
             //console.log('error: ', error);
         }
-        
-
     };
 };
