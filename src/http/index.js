@@ -34,7 +34,9 @@ export const createApiAction = agent => {
 };
 
 const mockDelay = mock => {
+    const { delay, response } = mock;
+
     return new Promise(resolve => {
-        setTimeout(resolve, mock?.delay || 0);
-    }).then(() => mock.response);
+        setTimeout(resolve, delay || 0);
+    }).then(() => response);
 };
