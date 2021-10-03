@@ -1,10 +1,14 @@
 import axios from 'axios';
 
+import { setFetching } from '../http/slice';
+
 export const createApiAction = agent => {
     return async dispatch => {
         const { method, url, data, actions, errors, mock } = agent;
 
         try {
+            //dispatch(setFetching(url));
+
             const response = (
                 mock?.enable 
                 ? await mockDelay(mock)
