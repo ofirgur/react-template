@@ -37,7 +37,7 @@ export const getUsers = () => {
       actions: [initialize],
       errors: null,
       mock: {
-        enable: false,
+        enable: __USE_MOCK__,
         delay: 3000,
         response: {
           status: 200,
