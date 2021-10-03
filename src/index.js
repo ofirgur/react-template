@@ -6,6 +6,8 @@ import { ConnectedRouter } from 'connected-react-router';
 import { store, history } from './redux/store';
 import App from './app';
 
+import './config';
+
 const root = (
     <Provider store={store}>
         <ConnectedRouter history={history}>

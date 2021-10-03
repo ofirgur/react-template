@@ -10,7 +10,7 @@ export const createApiAction = agent => {
             dispatch(setFetching({ type}));
 
             const response = (
-                mock?.enable 
+                mock?.enable || __DEV__ 
                 ? await mockDelay(mock)
                 : await axios({
                     method,
