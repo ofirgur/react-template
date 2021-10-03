@@ -32,7 +32,7 @@ export const types = {
   GET_USER: 'GET_USER'
 }
 
-export const getUsers = () => {
+export const getUser = () => {
   return createApiAction({
       method: 'GET',
       type: types.GET_USER,

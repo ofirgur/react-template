@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getUsers, types } from '../app/slice';
+import { getUser, types } from '../app/slice';
 import { isFetching } from '../http/slice';
 
 import Layout from '../layout';
@@ -11,7 +11,7 @@ const App = () => {
     const loading = useSelector(isFetching(types.GET_USER))
 
     useEffect(() => {
-      dispatch(getUsers());
+      dispatch(getUser());
     }, []);
 
     return (
