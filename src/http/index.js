@@ -2,7 +2,7 @@ import axios from 'axios';
  
 export const createApiAction = agent => {
     return async dispatch => {
-        const { method, url, data, actions } = agent;
+        const { method, url, data, actions, errors } = agent;
 
         try {
             const response = await axios({
@@ -15,11 +15,16 @@ export const createApiAction = agent => {
                 actions.forEach(action => {
                     dispatch(action(response.data));
                 }); 
+            } else {
+                errors.forEach(error => {
+                    dispatch(error(response));
+                });
             }         
         }
         catch (error) {
             //http request was failed
-            //console.log('error: ', error);
+            // Go to 501 page with error
+            console.log('http error: ', error);
         }
     };
 };
