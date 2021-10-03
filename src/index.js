@@ -30,7 +30,7 @@ ReactDOM.render(
 // 5. react hooks deep dive // now! (custom hooks) // *****done
 // 6. webpack deep div
 // 7. react debugging
-// 8. promises & async await
+// 8. promises & async await important!
 // 9. react state deep dive // *****done
 // 10. linter & eslint-plugin-react-hooks 
 // 11. build url

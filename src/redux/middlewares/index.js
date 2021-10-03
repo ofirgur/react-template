@@ -1,9 +1,7 @@
 import { routerMiddleware } from 'connected-react-router';
-import logger from 'redux-logger';
 
 const createRootMiddleware = history => ([
-    routerMiddleware(history),
-    logger
+    routerMiddleware(history)
 ]);
 
 export default createRootMiddleware;
