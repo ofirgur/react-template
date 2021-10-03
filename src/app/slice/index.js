@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { LOCATION_CHANGE } from 'connected-react-router';
 
+import { createApiAction } from "../../http";
+
 export const appSlice = createSlice({
   name: 'app',
   initialState: {},
@@ -20,7 +22,27 @@ export const appSlice = createSlice({
   }
 });
 
-// Action creators are generated for each case reducer function
 export const { initialize } = appSlice.actions;
 
 export default appSlice.reducer;
+
+/** action creators */
+
+export const getUsers = () => {
+  return createApiAction({
+      method: 'GET',
+      type: 'GET_USER',
+      url: 'https://jsonplaceholder.typicode.com/users',
+      data: {},
+      actions: [initialize],
+      errors: null,
+      mock: {
+        enable: true,
+        delay: 3000,
+        response: {
+          status: 200,
+          data: ['a', 'b']
+        }
+      }
+  });
+};

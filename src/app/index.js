@@ -1,33 +1,23 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { initialize } from '../app/slice';
-import { createApiAction } from "../http";
+import { getUsers } from '../app/slice';
+import { isFetching } from '../http/slice';
 
 import Layout from '../layout';
 
 const App = () => {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
+    const ready = useSelector(isFetching('GET_USER'))
 
     useEffect(() => {
-      dispatch(createApiAction({
-        method: 'GET',
-        url: 'https://jsonplaceholder.typicode.com/users',
-        data: {},
-        actions: [initialize],
-        mock: {
-          enable: true,
-          delay: 3000,
-          response: {
-            status: 200,
-            data: ['a', 'b']
-          }
-        }
-      }));
+      dispatch(getUsers());
     }, []);
 
     return (
-      <Layout />
+      ready
+      ? <div>Loading...</div>
+      : <Layout />
     );
 };
 

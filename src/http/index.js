@@ -4,10 +4,10 @@ import { setFetching } from '../http/slice';
 
 export const createApiAction = agent => {
     return async dispatch => {
-        const { method, url, data, actions, errors, mock } = agent;
+        const { method, type, url, data, actions, errors, mock } = agent;
 
         try {
-            //dispatch(setFetching(url));
+            dispatch(setFetching(type));
 
             const response = (
                 mock?.enable 
@@ -20,14 +20,16 @@ export const createApiAction = agent => {
             );
 
             if(response.status === 200) {
-                actions.forEach(action => {
+                actions && actions.forEach(action => {
                     dispatch(action(response.data));
                 }); 
             } else {
-                errors.forEach(error => {
+                errors && errors.forEach(error => {
                     dispatch(error(response));
                 });
-            }      
+            } 
+            
+            dispatch(setFetching(null));
         }
         catch (error) {
             // http request was failed

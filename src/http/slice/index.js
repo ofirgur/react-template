@@ -5,15 +5,15 @@ export const httpSlice = createSlice({
   initialState: {},
   reducers: {
     setFetching: (state, action) => {
-      state.request = {
-        url,
-        isFetching: true
-      };
+      state.fetching = action.payload;
     }
   }
 });
 
-// Action creators are generated for each case reducer function
 export const { setFetching } = httpSlice.actions;
 
 export default httpSlice.reducer;
+
+/** selectors */
+
+export const isFetching = type => state => type === state.http.fetching;
