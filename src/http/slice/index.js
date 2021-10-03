@@ -2,10 +2,18 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const httpSlice = createSlice({
   name: 'http',
-  initialState: {},
+  initialState: {
+    fetching: []
+  },
   reducers: {
     setFetching: (state, action) => {
-      state.fetching = action.payload;
+      const { type, reset } = action.payload;
+      
+      state.fetching = (
+        reset
+        ? state.fetching.filter(t => t !== type)
+        : state.fetching.concat(type)
+      );
     }
   }
 });
@@ -16,4 +24,4 @@ export default httpSlice.reducer;
 
 /** selectors */
 
-export const isFetching = type => state => type === state.http.fetching;
+export const isFetching = type => state => state.http.fetching.includes(type);

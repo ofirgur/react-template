@@ -7,7 +7,7 @@ export const createApiAction = agent => {
         const { method, type, url, data, actions, errors, mock } = agent;
 
         try {
-            dispatch(setFetching(type));
+            dispatch(setFetching({ type}));
 
             const response = (
                 mock?.enable 
@@ -19,6 +19,8 @@ export const createApiAction = agent => {
                 })
             );
 
+            dispatch(setFetching({ type, reset: true }));
+
             if(response.status === 200) {
                 actions && actions.forEach(action => {
                     dispatch(action(response.data));
@@ -28,12 +30,11 @@ export const createApiAction = agent => {
                     dispatch(error(response));
                 });
             } 
-            
-            dispatch(setFetching(null));
         }
         catch (error) {
             // http request was failed
             // go to 501 page with error
+            dispatch(setFetching(null));
             console.log('http error: ', error);
         }
     };
