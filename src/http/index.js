@@ -7,7 +7,7 @@ export const createApiAction = agent => {
         try {
             const response = (
                 mock?.enable 
-                ? mock.response
+                ? await mockDelay(mock)
                 : await axios({
                     method,
                     url,
@@ -15,17 +15,15 @@ export const createApiAction = agent => {
                 })
             );
 
-            setTimeout(() => {
-                if(response.status === 200) {
-                    actions.forEach(action => {
-                        dispatch(action(response.data));
-                    }); 
-                } else {
-                    errors.forEach(error => {
-                        dispatch(error(response));
-                    });
-                }
-            }, mock?.delay || 0);         
+            if(response.status === 200) {
+                actions.forEach(action => {
+                    dispatch(action(response.data));
+                }); 
+            } else {
+                errors.forEach(error => {
+                    dispatch(error(response));
+                });
+            }      
         }
         catch (error) {
             // http request was failed
@@ -35,11 +33,8 @@ export const createApiAction = agent => {
     };
 };
 
-const getMethod = method => {
-    switch(method.toLowerCase()) {
-        case 'get': return 'onGet';
-        case 'post': return 'onPost';
-        case 'put': return 'onPut';
-        case 'delete': return 'onDelete';
-    }
+const mockDelay = mock => {
+    return new Promise(resolve => {
+        setTimeout(resolve, mock?.delay || 0);
+    }).then(() => mock.response);
 };
