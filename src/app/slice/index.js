@@ -28,10 +28,14 @@ export default appSlice.reducer;
 
 /** action creators */
 
+export const types = {
+  GET_USER: 'GET_USER'
+}
+
 export const getUsers = () => {
   return createApiAction({
       method: 'GET',
-      type: 'GET_USER',
+      type: types.GET_USER,
       url: 'https://jsonplaceholder.typicode.com/users',
       data: {},
       actions: [initialize],
