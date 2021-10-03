@@ -8,14 +8,14 @@ import Layout from '../layout';
 
 const App = () => {
     const dispatch = useDispatch();
-    const isLoading = useSelector(isFetching(types.GET_USER))
+    const loading = useSelector(isFetching(types.GET_USER))
 
     useEffect(() => {
       dispatch(getUsers());
     }, []);
 
     return (
-      isLoading
+      loading
       ? <div>Loading...</div>
       : <Layout />
     );
