@@ -31,7 +31,7 @@ ReactDOM.render(
 // 6. webpack deep div
 // 7. react debugging
 // 8. promises & async await
-// 9. react state deep dive
+// 9. react state deep dive // *****done
 // 10. linter & eslint-plugin-react-hooks 
 // 11. build url
 // 12. mocking // *****done
@@ -39,3 +39,4 @@ ReactDOM.render(
 // 14. eligibility
 // 15. __DEV__ flag for mock
 // 16. icons (where from?)
+// 17. i18n, l10n, g11n
