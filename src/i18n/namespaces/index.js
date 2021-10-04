@@ -1,4 +1,4 @@
-export { cinema } from './cinema';
+import { cinema } from './cinema';
 
 export const namespaces = {
     cinema

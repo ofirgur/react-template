@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-import { setFetching } from '../http/slice';
+import { setLoading } from '../http/slice';
 
 export const createApiAction = agent => {
     return async dispatch => {
-        const { method, type, url, data, actions, errors, mock } = agent;
+        const { method, type, url, data, actions, errors, onSuccess, onFailure, mock } = agent;
 
         try {
-            dispatch(setFetching({ type}));
+            dispatch(setLoading({ type }));
 
             const response = (
                 mock?.enable
@@ -19,23 +19,26 @@ export const createApiAction = agent => {
                 })
             );
 
-            dispatch(setFetching({ type, reset: true }));
-
-            if(response.status === 200) {
+            const { status, data } = response;
+            if(status === 200) {
                 actions && actions.forEach(action => {
-                    dispatch(action(response.data));
+                    dispatch(action(data));
                 }); 
+
+                onSuccess && onSuccess(data);
             } else {
-                errors && errors.forEach(error => {
-                    dispatch(error(response));
-                });
+                // errors && errors.forEach(error => {
+                //     dispatch(error(data));
+                // });
+
+                // onFailure && onFailure(data);
             } 
+
+            dispatch(setLoading({ type, reset: true }));
         }
         catch (error) {
-            // http request was failed
-            // go to 501 page with error
-            dispatch(setFetching(null));
-            console.log('http error: ', error);
+            onFailure && onFailure(error);
+            dispatch(setLoading({ type, reset: true }));
         }
     };
 };

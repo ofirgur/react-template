@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { LOCATION_CHANGE } from 'connected-react-router';
 
+import user from '../../user';
+import i18n from '../../i18n';
 import { createApiAction } from "../../http";
+
 
 export const appSlice = createSlice({
   name: 'app',
@@ -39,13 +42,23 @@ export const getUser = () => {
       url: 'https://jsonplaceholder.typicode.com/users',
       data: {},
       actions: [initialize],
-      errors: null,
+      // errors: [],
+      onSuccess: payload => {
+        user.onSuccess(payload);
+        console.log('locale: ', user?.locale);
+        i18n.initialize(user?.locale || 'en');
+      },
+      // onFailure: error => {
+
+      // },
       mock: {
         enable: __USE_MOCK__,
         delay: 3000,
         response: {
           status: 200,
-          data: ['a', 'b']
+          data: {
+            locale: 'en'
+          }
         }
       }
   });
