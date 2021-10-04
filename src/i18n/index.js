@@ -1,19 +1,22 @@
 import { namespaces } from './namespaces';
 
-const translateFrom = namespace => {
-    return key => {
-        return namespaces[namespace]
-                .resources['en'][key];
-    };
-};
+
 
 class I18N {
     constructor() {
         this.initialize = this.initialize.bind(this);
+        this.locale = 'en';
     }
 
     initialize(locale) {
         this.locale = locale;
+    };
+
+    translateFrom(namespace) {
+        return key => {
+            return namespaces[namespace]
+                    .resources[this.locale][key];
+        };
     };
 }
 

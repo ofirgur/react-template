@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
-import user from '../user';
+import i18n from '../i18n';
+const t = i18n.translateFrom('cinema');
 
 const Layout = () => {
-    console.log('locale: ', user.locale);
-
+    console.log('locale: ', i18n.locale);
+    console.log('translate: ', t('krembo'));
     return (
         <Switch>
           <Route exact path="/" component={() => (<div><h1>App Layout</h1><Link to="/example">link to /example</Link></div>)} />
