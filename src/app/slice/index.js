@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { LOCATION_CHANGE } from 'connected-react-router';
 
+import { createApiAction } from "../../http";
 import user from '../../user';
 import i18n from '../../i18n';
-import { createApiAction } from "../../http";
-
+import namespaces from '../../namespaces';
 
 export const appSlice = createSlice({
   name: 'app',
@@ -46,7 +46,7 @@ export const getUser = () => {
       onSuccess: payload => {
         user.onSuccess(payload);
         console.log('locale: ', user?.locale);
-        i18n.initialize(user?.locale || 'en');
+        i18n.initialize(namespaces, user?.locale || 'en');
       },
       // onFailure: error => {
 
