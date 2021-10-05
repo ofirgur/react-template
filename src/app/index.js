@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getUser, types } from '../app/slice';
+import { getUser } from './http';
+import { types } from './slice';
 import { isLoading } from '../http/slice';
 
 import Layout from '../layout';
