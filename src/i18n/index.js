@@ -31,13 +31,17 @@ class i18n {
     };
 
     loadNamespace(name, namespace) {
-        this.namespaces[name] = namespace;
+        this.namespaces = {
+            ...this.namespaces,
+            [name]: namespace
+        };
     };
 
     loadResource(name, resources) {
-        if(this.namespaces[name]) {
-            this.namespaces[name].resources = resources;
-        }
+        this.namespaces[name] = {
+            ...this.namespaces[name],
+            resources
+        };
     };
 }
 
