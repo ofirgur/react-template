@@ -7,6 +7,9 @@ export const appSlice = createSlice({
   reducers: {
     initialize: (state, action) => {
       state.data = action.payload;
+    },
+    setLocale: (state, action) => {
+      state.data.locale = 'en';
     }
   },
   extraReducers: (builder) => {
@@ -20,10 +23,12 @@ export const appSlice = createSlice({
   }
 });
 
-export const { initialize } = appSlice.actions;
+export const { initialize, setLocale } = appSlice.actions;
 
 export default appSlice.reducer;
 
 export const types = {
   GET_USER: 'GET_USER'
 };
+
+export const getLocale = state => state.app.data?.locale;
