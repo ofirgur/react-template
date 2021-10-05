@@ -14,7 +14,6 @@ export const getUser = () => {
         // errors: [],
         onSuccess: payload => {
           user.onSuccess(payload);
-          console.log('locale: ', user?.locale);
           i18n.initialize(namespaces, user?.locale || 'en');
         },
         // onFailure: error => {},

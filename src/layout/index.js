@@ -1,29 +1,27 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 
-import { setLocale } from '../app/slice';
+import { setLocale, getLocale } from '../app/slice';
 
 import i18n from '../i18n';
 const t = i18n.translateFrom('app');
 
 const Layout = () => {
     const dispatch = useDispatch();
-    console.log('locale: ', i18n.locale);
-    console.log('translate: ', t('HelloWorld.Text'));
-    //i18n.setLocale('en');
-    console.log('locale: ', i18n.locale);
-    console.log('translate: ', t('HelloWorld.Text'));
+    const locale = useSelector(getLocale);
 
     useEffect(() => {
-
-    });
+      //i18n.setLocale(locale);
+      console.log('state.locale: ', locale);
+    }, [locale]);
 
     const onClick = () => {
       i18n.setLocale('en');
-      console.log('locale: ', i18n.locale);
+      console.log('i18n setLocale');
+      console.log('i18n.locale: ', i18n.locale);
       dispatch(setLocale());
-      console.log('setLocale')
+      console.log('state setLocale');
     };
 
     return (
