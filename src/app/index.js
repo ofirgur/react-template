@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getUser } from './http';
 import { types } from './slice';
-import { isLoading } from '../http/slice';
+import { isLoading } from '../redux-http/slice';
 
 import Layout from '../layout';
 

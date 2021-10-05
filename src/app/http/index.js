@@ -1,4 +1,4 @@
-import { createApiAction } from '../../http';
+import { createApiAction } from '../../redux-http';
 import { initialize, types } from '../slice';
 import user from '../../user';
 import i18n from '../../i18n';

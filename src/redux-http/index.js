@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { setLoading } from '../http/slice';
+import { setLoading } from './slice';
 
 export const createApiAction = agent => {
     return async dispatch => {
