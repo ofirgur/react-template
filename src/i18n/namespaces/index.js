@@ -1,5 +1,14 @@
+import { app } from './app';
 import { cinema } from './cinema';
 
-export const namespaces = {
+const namespaces = {
+    app,
     cinema
 };
+
+export default namespaces;
+
+export const names = Object.keys(namespaces).reduce((a, v) => ({ ...a, [v]: v}), {});
+
+
+

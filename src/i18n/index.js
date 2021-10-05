@@ -1,8 +1,6 @@
-import { namespaces } from './namespaces';
+import namespaces from './namespaces';
 
-
-
-class I18N {
+class i18n {
     constructor() {
         this.initialize = this.initialize.bind(this);
         this.locale = 'en';
@@ -20,8 +18,7 @@ class I18N {
     };
 }
 
-const i18n = new I18N();
-export default i18n;
+export default new i18n();
 
 
 
