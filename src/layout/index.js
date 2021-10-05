@@ -7,6 +7,7 @@ const t = i18n.translateFrom('app');
 const Layout = () => {
     console.log('locale: ', i18n.locale);
     console.log('translate: ', t('HelloWorld.Text'));
+    
     return (
         <Switch>
           <Route exact path="/" component={() => (<div><h1>App Layout</h1><Link to="/example">link to /example</Link></div>)} />
