@@ -8,12 +8,10 @@ import i18n from '../../i18n';
 const Index = () => {
     const [locale, setLocale] = useState('fr'); 
     const dispatch = useDispatch();
-    console.log('translate with locale: ', i18n.getLocale());
     
     const onClick = () => {
         i18n.setLocale(locale);
         dispatch(setUserLocale(locale));
-        console.log(`dispatch(setUserLocale('fr')) ', locale)`);
         setLocale(locale === 'en' ? 'fr' : 'en');
     };
 

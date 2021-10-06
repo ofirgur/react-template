@@ -1,10 +1,11 @@
 class i18n {
     constructor() {
-        this.initialize = this.initialize.bind(this);
         this.getLocale = this.getLocale.bind(this);
         this.setLocale = this.setLocale.bind(this);
         this.loadNamespace = this.loadNamespace.bind(this);
-        this.loadResource = this.loadResource.bind(this);
+        this.loadResource = this.loadResources.bind(this);
+        this.initialize = this.initialize.bind(this);
+        this.translateFrom = this.translateFrom.bind(this);
 
         this.locale = 'en';
         this.namespaces = {};
@@ -18,11 +19,6 @@ class i18n {
         this.locale = locale;
     }
 
-    initialize(namespaces, locale) {
-        this.namespaces = namespaces;
-        this.locale = locale;
-    };
-
     loadNamespace(name, namespace) {
         this.namespaces = {
             ...this.namespaces,
@@ -30,11 +26,16 @@ class i18n {
         };
     };
 
-    loadResource(name, resources) {
+    loadResources(name, resources) {
         this.namespaces[name] = {
             ...this.namespaces[name],
             resources
         };
+    };
+
+    initialize(namespaces, locale) {
+        this.namespaces = namespaces;
+        this.locale = locale;
     };
 
     translateFrom(namespace) {

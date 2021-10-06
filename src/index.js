@@ -42,3 +42,6 @@ ReactDOM.render(
 // 17. i18n, l10n, g11n
 // 18. array reduce
 // 19. formik
+// 20. code split
+// 21. style split
+// 22. redux split
