@@ -23,7 +23,7 @@ export const getUser = () => {
           response: {
             status: 200,
             data: {
-              locale: 'fr'
+              locale: 'en'
             }
           }
         }
