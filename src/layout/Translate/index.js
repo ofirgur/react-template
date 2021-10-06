@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setUserLocale } from '../../app/slice';
 import Krembo from './Krembo';
-import i18n from '../../i18n';
+import changeLocale from '../../helpers/changeLocale';
 
 const Index = () => {
     const [locale, setLocale] = useState('fr'); 
     const dispatch = useDispatch();
     
     const onClick = () => {
-        i18n.setLocale(locale);
-        dispatch(setUserLocale(locale));
+        changeLocale(dispatch ,locale);
         setLocale(locale === 'en' ? 'fr' : 'en');
     };
 
