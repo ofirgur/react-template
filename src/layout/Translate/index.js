@@ -1,15 +1,17 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
+import { setUserLocale } from '../../app/slice';
 import i18n from '../../i18n';
 const t = i18n.translateFrom('app');
 
-const Translate = () => {
-    console.log('i18n.locale: ', i18n.locale)
-
+const Index = () => {
+    const dispatch = useDispatch();
+    console.log('translate with locale: ', i18n.getLocale());
+    
     const onClick = () => {
-        i18n.setLocale('fr');
-        console.log('i18n.setLocale(fr): ', i18n.locale);
-        console.log('i18n.locale: ', i18n.locale);
+        dispatch(setUserLocale('fr'));
+        console.log(`dispatch(setUserLocale('fr')) ', locale)`);
     };
 
     return (
@@ -20,4 +22,4 @@ const Translate = () => {
     );
 };
 
-export default Translate;
+export default Index;

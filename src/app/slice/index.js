@@ -3,10 +3,20 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 
 export const appSlice = createSlice({
   name: 'app',
-  initialState: {},
+  initialState: {
+    user: {
+      locale: 'en'
+    }
+  },
   reducers: {
     setUser: (state, action) => {
       state.user = action.payload;
+    },
+    setUserLocale: (state, action) => {
+      state.user = {
+        ...state.user,
+        locale: action.payload
+      }
     }
   },
   extraReducers: (builder) => {
@@ -20,7 +30,7 @@ export const appSlice = createSlice({
   }
 });
 
-export const { setUser } = appSlice.actions;
+export const { setUser, setUserLocale } = appSlice.actions;
 
 export default appSlice.reducer;
 
