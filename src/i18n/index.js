@@ -5,6 +5,7 @@ class i18n {
         this.setLocale = this.setLocale.bind(this);
         this.loadNamespace = this.loadNamespace.bind(this);
         this.loadResource = this.loadResource.bind(this);
+
         this.locale = 'en';
         this.namespaces = {};
     }
@@ -22,14 +23,6 @@ class i18n {
         this.locale = locale;
     };
 
-    translateFrom(namespace) {
-        return key => {
-            const resources = this.namespaces[namespace]?.resources[this.locale];
-
-            return resources ? resources[key] : '';
-        };
-    };
-
     loadNamespace(name, namespace) {
         this.namespaces = {
             ...this.namespaces,
@@ -41,6 +34,14 @@ class i18n {
         this.namespaces[name] = {
             ...this.namespaces[name],
             resources
+        };
+    };
+
+    translateFrom(namespace) {
+        return key => {
+            const resources = this.namespaces[namespace]?.resources[this.locale];
+
+            return resources ? resources[key] : '';
         };
     };
 }

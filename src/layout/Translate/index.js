@@ -11,6 +11,7 @@ const Index = () => {
     console.log('translate with locale: ', i18n.getLocale());
     
     const onClick = () => {
+        i18n.setLocale(locale);
         dispatch(setUserLocale(locale));
         console.log(`dispatch(setUserLocale('fr')) ', locale)`);
         setLocale(locale === 'en' ? 'fr' : 'en');
