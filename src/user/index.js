@@ -1,6 +1,7 @@
 class User {
     constructor() {
         this.onSuccess = this.onSuccess.bind(this);
+        this.locale = 'en';
     }
 
     onSuccess(payload) {

@@ -5,8 +5,8 @@ export const appSlice = createSlice({
   name: 'app',
   initialState: {},
   reducers: {
-    initialize: (state, action) => {
-      state.data = action.payload;
+    setUser: (state, action) => {
+      state.user = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -20,7 +20,7 @@ export const appSlice = createSlice({
   }
 });
 
-export const { initialize, setLocale } = appSlice.actions;
+export const { setUser } = appSlice.actions;
 
 export default appSlice.reducer;
 

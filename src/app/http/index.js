@@ -1,22 +1,16 @@
 import { createApiAction } from '../../redux-http';
-import { initialize, types } from '../slice';
-import user from '../../user';
-import i18n from '../../i18n';
-import namespaces from '../../namespaces';
+import { setUser, types } from '../slice';
 
-export const getUser = () => {
+export const getUser = (onSussess, onFailure) => {
     return createApiAction({
         method: 'GET',
         type: types.GET_USER,
         url: 'https://jsonplaceholder.typicode.com/users',
         data: {},
-        actions: [initialize],
+        actions: [setUser],
         // errors: [],
-        onSuccess: payload => {
-          user.onSuccess(payload);
-          i18n.initialize(namespaces, user?.locale || 'en');
-        },
-        // onFailure: error => {},
+        onSuccess: onSussess,
+        onFailure: onFailure,
         mock: {
           enable: __USE_MOCK__,
           delay: 3000,
