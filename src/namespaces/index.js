@@ -1,9 +1,8 @@
 import { app } from './app';
-import { cinema } from './cinema';
+
 
 const namespaces = {
-    app,
-    cinema
+    app
 };
 
 export default namespaces;

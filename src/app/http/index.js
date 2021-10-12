@@ -17,8 +17,8 @@ export const getUser = (onSussess, onFailure) => {
           response: {
             status: 200,
             data: {
-              locale: 'en',
-              currency: 'USD'
+              locale: 'ja-JP',
+              currency: 'JPY'
             }
           }
         }
