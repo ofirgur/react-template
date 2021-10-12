@@ -38,3 +38,5 @@ export const types = {
   GET_USER: 'GET_USER'
 };
 
+export const getUserLocale = state => state.app.user.locale;
+

@@ -10,7 +10,7 @@ const Index = () => {
     
     const onClick = () => {
         changeLocale(dispatch ,locale);
-        setLocale(locale === 'en' ? 'fr' : 'en');
+        setLocale(locale === 'en' ? 'de-DE' : 'en');
     };
 
     return (
