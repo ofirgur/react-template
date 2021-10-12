@@ -1,8 +1,8 @@
-import a from './locales';
+import { LOCALES } from '../locales';
 
 class l10n {
     constructor() {
-        this.locale = 'en-US'
+        this.locale = LOCALES.en
     }
 };
 

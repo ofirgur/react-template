@@ -7,9 +7,6 @@ import { store, history } from './redux/store';
 import App from './app';
 
 import './config';
-import l10n from './l10n';
-
-l10n.print();
 
 const root = (
     <Provider store={store}>

@@ -1,3 +1,5 @@
+import { LOCALES } from '../locales';
+
 class i18n {
     constructor() {
         this.getLocale = this.getLocale.bind(this);
@@ -7,7 +9,7 @@ class i18n {
         this.initialize = this.initialize.bind(this);
         this.translateFrom = this.translateFrom.bind(this);
 
-        this.locale = 'en';
+        this.locale = this.locale = LOCALES.en;
         this.namespaces = {};
     }
 
