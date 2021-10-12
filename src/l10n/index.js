@@ -1,9 +1,11 @@
-import { LOCALES } from '../locales';
-
 class l10n {
     constructor() {
         this.initialize = this.initialize.bind(this);
-        this.locale = LOCALES.en
+        this.numberFormat = this.numberFormat.bind(this);
+        this.setLocale = this.setLocale.bind(this);
+        this.setCurrency = this.setCurrency.bind(this);
+
+        this.locale = 'en'
         this.currency = 'USD'
     }
 
@@ -13,7 +15,18 @@ class l10n {
     }
 
     numberFormat(number) {
-        return new Intl.NumberFormat('de-DE', { style: 'currency', currency: this.currency }).format(number);
+        return new Intl.NumberFormat(this.locale, { 
+                style: 'currency', 
+                currency: this.currency 
+            }).format(number);
+    }
+
+    setLocale(locale) {
+        this.locale = locale;
+    }
+
+    setCurrency(currency) {
+        this.currency = currency;
     }
 };
 

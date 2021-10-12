@@ -13,7 +13,7 @@ export const getUser = (onSussess, onFailure) => {
         onFailure: onFailure,
         mock: {
           enable: __USE_MOCK__,
-          delay: 3000,
+          delay: 300,
           response: {
             status: 200,
             data: {

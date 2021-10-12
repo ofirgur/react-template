@@ -3,14 +3,16 @@ import { useDispatch } from 'react-redux';
 
 import Krembo from './Krembo';
 import changeLocale from '../../helpers/changeLocale';
+import changeCurrency from '../../helpers/changeCurrency';
 
 const Index = () => {
-    const [locale, setLocale] = useState('ja-JP'); 
+    const [locale, setLocale] = useState({ locale: 'ja-JP', currency: 'JPY'}); 
     const dispatch = useDispatch();
     
     const onClick = () => {
-        changeLocale(dispatch ,locale);
-        setLocale(locale === 'ja-JP' ? 'de-DE' : 'ja-JP');
+        changeLocale(dispatch ,locale.locale);
+        changeCurrency(locale.currency);
+        setLocale({ locale: locale.locale === 'ja-JP' ? 'de-DE' : 'ja-JP', currency: locale.locale === 'ja-JP' ? 'EUR' : 'JPY' });
     };
 
     return (

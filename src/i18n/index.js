@@ -9,7 +9,7 @@ class i18n {
         this.initialize = this.initialize.bind(this);
         this.translateFrom = this.translateFrom.bind(this);
 
-        this.locale = this.locale = LOCALES.en;
+        this.locale = this.locale = 'en';
         this.namespaces = {};
     }
 
