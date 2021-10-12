@@ -5,7 +5,8 @@ export const appSlice = createSlice({
   name: 'app',
   initialState: {
     user: {
-      locale: 'en'
+      locale: 'en',
+      currency: 'USD'
     }
   },
   reducers: {
@@ -13,10 +14,10 @@ export const appSlice = createSlice({
       state.user = action.payload;
     },
     setUserLocale: (state, action) => {
-      state.user = {
-        ...state.user,
-        locale: action.payload
-      }
+      state.user.locale = action.payload;
+    },
+    setUserCurrency: (state, action) => {
+      state.user.currency = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -30,7 +31,7 @@ export const appSlice = createSlice({
   }
 });
 
-export const { setUser, setUserLocale } = appSlice.actions;
+export const { setUser, setUserLocale, setUserCurrency } = appSlice.actions;
 
 export default appSlice.reducer;
 
@@ -39,4 +40,5 @@ export const types = {
 };
 
 export const getUserLocale = state => state.app.user.locale;
+export const getUserCurrency = state => state.app.user.currency;
 

@@ -15,7 +15,7 @@ const Index = () => {
         
         setLocale({ l , c });
         changeLocale(dispatch ,l);
-        changeCurrency(c);
+        changeCurrency(dispatch, c);
     };
 
     return (
