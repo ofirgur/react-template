@@ -37,10 +37,6 @@ class User {
         dispatch(setUserCurrency(this.currency));
     }
 
-    translateFrom(namespace) {
-        return i18n.translateFrom(namespace)(this.locale);
-    }
-
     numberFormat(number) {
         return l10n.numberFormat(number)(this.locale);
     }
