@@ -7,7 +7,7 @@ import { getUserLocale, getUserCurrency } from '../../user/slice';
 
 const Krembo = () => {
     const t = useTranslate('app');
-    const f = useNumberFormat({});
+    const f = useNumberFormat({ currency: true });
     const locale = useSelector(getUserLocale);
     const currency = useSelector(getUserCurrency);
 
@@ -19,9 +19,11 @@ const Krembo = () => {
             <div>user locale: {locale}</div>
             <div>user currency: {currency}</div>
             <p>{t('HelloWorld.Text')} is hello world</p>
-            <p>useNumberFormat: {f(number)}</p>
 
             <p>number: {number}</p>
+
+            <p>useNumberFormat: {f(number)}</p>
+
             <p>locale: de-DE</p>
             <p>{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(number)}</p>
             <p>locale: ja-JP</p>
