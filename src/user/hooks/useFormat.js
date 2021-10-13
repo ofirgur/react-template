@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
-import { getUserCurrency } from '../user/slice';
-import l10n from '../l10n';
+import { getUserCurrency } from '../slice';
+import l10n from '../../l10n';
 
 const useFormat = number => {
     const currency = useSelector(getUserCurrency);

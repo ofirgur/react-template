@@ -1,7 +1,7 @@
 import React from 'react';
 
-import useTranslate from '../../hooks/useTranslate';
-import useFormat from '../../hooks/useFormat';
+import useTranslate from '../../user/hooks/useTranslate';
+import useFormat from '../../user/hooks/useFormat';
 import user from '../../user';
 
 const Krembo = () => {
