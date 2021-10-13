@@ -2,12 +2,12 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getUserLocale } from '../slice';
-import i18n from '../../i18n';
+import user from '../../user';
 
 const useTranslate = namespace => {
     const locale = useSelector(getUserLocale);
     const t = useCallback(
-        key => i18n.translateFrom(namespace)(key),
+        key => user.translateFrom(namespace)(key),
         [locale],
     );
 

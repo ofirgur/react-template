@@ -17,8 +17,8 @@ class i18n {
     };
 
     translateFrom(namespace) {
-        return key => {
-            const resources = this.namespaces[namespace]?.resources[this.locale];
+        return locale => key => {
+            const resources = this.namespaces[namespace]?.resources[locale];
 
             return resources ? resources[key] : '';
         };

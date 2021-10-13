@@ -28,7 +28,7 @@ class User {
     }
 
     initSystem() {
-        i18n.initialize(this.locale);
+        //i18n.initialize(this.locale);
         l10n.initialize(this.locale, this.currency);
     }
 
@@ -37,7 +37,7 @@ class User {
         
         this.locale = locale;
         dispatch(setUserLocale(this.locale));
-        i18n.setLocale(this.locale);
+        //i18n.setLocale(this.locale);
         l10n.setLocale(this.locale);
     }
 
@@ -47,6 +47,10 @@ class User {
         this.currency = currency;
         dispatch(setUserCurrency(this.currency));
         l10n.setCurrency(this.currency);
+    }
+
+    translateFrom(namespace) {
+        return i18n.translateFrom(namespace)(this.locale);
     }
 }
 
