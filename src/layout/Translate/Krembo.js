@@ -1,14 +1,14 @@
 import React from 'react';
 
 import useTranslate from '../../user/hooks/useTranslate';
-import useFormat from '../../user/hooks/useFormat';
+import useNumberFormatWithCurrency from '../../user/hooks/useNumberFormatWithCurrency';
 import user from '../../user';
 
 const Krembo = () => {
     const t = useTranslate('app');
 
     const number = 123456.789;
-    const format = useFormat(number);
+    const format = useNumberFormatWithCurrency(number);
     
 
     return (
