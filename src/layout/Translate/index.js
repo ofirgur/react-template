@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setUserLocale } from '../../user/slice';
+import { setUserLocale, setUserCurrency } from '../../user/slice';
 
 import Krembo from './Krembo';
 
@@ -15,6 +15,7 @@ const Index = () => {
         
         setLocale({ l , c });
         dispatch(setUserLocale(l));
+        dispatch(setUserCurrency(c));
     };
 
     return (

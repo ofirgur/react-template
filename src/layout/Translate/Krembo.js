@@ -1,18 +1,23 @@
 import React from 'react';
-
+import { useSelector } from 'react-redux';
 import { useTranslate } from '../../i18n/hooks';
 import { useNumberFormat } from '../../l10n/hooks';
+
+import { getUserLocale, getUserCurrency } from '../../user/slice';
 
 const Krembo = () => {
     const t = useTranslate('app');
     const f = useNumberFormat({});
+    const locale = useSelector(getUserLocale);
+    const currency = useSelector(getUserCurrency);
+
     const number = 123456.789;
     
 
     return (
         <div>
-            {/* <div>user locale: {user.locale}</div>
-            <div>user currency: {user.currency}</div> */}
+            <div>user locale: {locale}</div>
+            <div>user currency: {currency}</div>
             <p>{t('HelloWorld.Text')} is hello world</p>
             <p>useNumberFormat: {f(number)}</p>
 
