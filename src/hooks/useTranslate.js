@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getUserLocale } from '../app/slice';
+import { getUserLocale } from '../user/slice';
 import i18n from '../i18n';
 
 const useTranslate = namespace => {

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getUser } from './http';
-import { types } from './slice';
+import { getUser } from '../user/http';
+import { types } from '../user/slice';
 import { isLoading } from '../redux-http/slice';
 import initSystem from '../helpers/initSystem';
 

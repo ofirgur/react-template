@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { getUserCurrency } from '../app/slice';
+import { getUserCurrency } from '../user/slice';
 import l10n from '../l10n';
 
 const useFormat = number => {
