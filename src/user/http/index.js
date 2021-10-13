@@ -10,7 +10,7 @@ export const getUser = () => {
         data: {},
         actions: [setUser],
         // errors: [],
-        onSuccess: user.onSussess,
+        onSuccess: user.onSuccess,
         onFailure: user.onFailure,
         mock: {
           enable: __USE_MOCK__,

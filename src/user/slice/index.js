@@ -9,7 +9,9 @@ export const appSlice = createSlice({
   },
   reducers: {
     setUser: (state, action) => {
-      state.details = action.payload;
+      const { locale, currency } = action.payload;
+      state.locale = locale;
+      state.currency = currency;
     },
     setUserLocale: (state, action) => {
       state.locale = action.payload;

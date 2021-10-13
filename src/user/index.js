@@ -6,6 +6,7 @@ class User {
     constructor() {
         this.onSuccess = this.onSuccess.bind(this);
         this.onFailure = this.onFailure.bind(this);
+        this.initSystem = this.initSystem.bind(this);
         this.setLocale = this.setLocale.bind(this);
         this.setCurrency = this.setCurrency.bind(this);
 
@@ -14,6 +15,7 @@ class User {
     }
 
     onSuccess(payload) {
+        console.log('payload: ', payload)
         this.locale = payload.locale;
         this.currency = payload.currency;
 

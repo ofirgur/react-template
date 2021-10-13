@@ -14,6 +14,7 @@ const Krembo = () => {
     return (
         <div>
             <div>user locale: {user.locale}</div>
+            <div>user currency: {user.currency}</div>
             <p>{t('HelloWorld.Text')} is hello world</p>
             <p>useFormat: {format}</p>
 
