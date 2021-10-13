@@ -1,6 +1,7 @@
 import i18n from '../i18n';
 import l10n from '../l10n';
 import { store } from '../redux/store';
+import { setUserLocale, setUserCurrency } from '../user/slice';
 
 class User {
     constructor() {
@@ -29,15 +30,23 @@ class User {
     initSystem() {
         i18n.initialize(this.locale);
         l10n.initialize(this.locale, this.currency);
-        //store.dispatch();
     }
 
     setLocale(locale) {
+        const { dispatch } = store;
+        
         this.locale = locale;
+        dispatch(setUserLocale(this.locale));
+        i18n.setLocale(this.locale);
+        l10n.setLocale(this.locale);
     }
 
     setCurrency(currency) {
+        const { dispatch } = store;
+
         this.currency = currency;
+        dispatch(setUserCurrency(this.currency));
+        l10n.setCurrency(this.currency);
     }
 }
 
