@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../user/http';
 import { types } from '../user/slice';
 import { isLoading } from '../redux-http/slice';
-import initSystem from '../helpers/initSystem';
 
 import Layout from '../layout';
 
@@ -13,7 +12,7 @@ const App = () => {
     const loading = useSelector(isLoading(types.GET_USER));
 
     useEffect(() => {
-      dispatch(getUser(initSystem));
+      dispatch(getUser());
     }, []);
 
     return (

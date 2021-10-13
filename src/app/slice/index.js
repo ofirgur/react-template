@@ -10,7 +10,7 @@ export const appSlice = createSlice({
     .addDefaultCase((state, action) => {
         switch(action.type) {
             case LOCATION_CHANGE:
-                console.log('LOCATION_CHANGE')
+                console.log('LOCATION_CHANGE');
         }
     });
   }

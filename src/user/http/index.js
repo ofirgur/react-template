@@ -1,7 +1,8 @@
 import { createApiAction } from '../../redux-http';
 import { setUser, types } from '../slice';
+import user from '../index';
 
-export const getUser = (onSussess, onFailure) => {
+export const getUser = () => {
     return createApiAction({
         method: 'GET',
         type: types.GET_USER,
@@ -9,8 +10,8 @@ export const getUser = (onSussess, onFailure) => {
         data: {},
         actions: [setUser],
         // errors: [],
-        onSuccess: onSussess,
-        onFailure: onFailure,
+        onSuccess: user.onSussess,
+        onFailure: user.onFailure,
         mock: {
           enable: __USE_MOCK__,
           delay: 300,
