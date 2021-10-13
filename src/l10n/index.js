@@ -1,35 +1,17 @@
 class l10n {
     constructor() {
-        this.initialize = this.initialize.bind(this);
         this.numberFormat = this.numberFormat.bind(this);
-        this.setLocale = this.setLocale.bind(this);
-        this.setCurrency = this.setCurrency.bind(this);
-
-        this.locale = 'en'
-        this.currency = 'USD'
-    }
-
-    initialize(locale, currency) {
-        this.locale = locale;
-        this.currency = currency;
-    }
-
-    setLocale(locale) {
-        this.locale = locale;
-    }
-
-    setCurrency(currency) {
-        this.currency = currency;
+        this.numberFormatWithCurrency = this.numberFormatWithCurrency.bind(this);
     }
 
     numberFormat(number) {
-        return new Intl.NumberFormat(this.locale).format(number);
+        return locale => new Intl.NumberFormat(locale).format(number);
     }
 
     numberFormatWithCurrency(number) {
-        return new Intl.NumberFormat(this.locale, { 
+        return (locale, currency) => new Intl.NumberFormat(locale, { 
             style: 'currency', 
-            currency: this.currency 
+            currency: currency 
         }).format(number);
     }
 };

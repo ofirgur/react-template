@@ -7,7 +7,6 @@ class User {
     constructor() {
         this.onSuccess = this.onSuccess.bind(this);
         this.onFailure = this.onFailure.bind(this);
-        this.initSystem = this.initSystem.bind(this);
         this.setLocale = this.setLocale.bind(this);
         this.setCurrency = this.setCurrency.bind(this);
 
@@ -16,20 +15,12 @@ class User {
     }
 
     onSuccess(payload) {
-        console.log('payload: ', payload)
         this.locale = payload.locale;
         this.currency = payload.currency;
-
-        this.initSystem();
     }
 
     onFailure(error) {
         console.log('Error: ', error);   
-    }
-
-    initSystem() {
-        //i18n.initialize(this.locale);
-        l10n.initialize(this.locale, this.currency);
     }
 
     setLocale(locale) {
@@ -37,8 +28,6 @@ class User {
         
         this.locale = locale;
         dispatch(setUserLocale(this.locale));
-        //i18n.setLocale(this.locale);
-        l10n.setLocale(this.locale);
     }
 
     setCurrency(currency) {
@@ -46,11 +35,18 @@ class User {
 
         this.currency = currency;
         dispatch(setUserCurrency(this.currency));
-        l10n.setCurrency(this.currency);
     }
 
     translateFrom(namespace) {
         return i18n.translateFrom(namespace)(this.locale);
+    }
+
+    numberFormat(number) {
+        return l10n.numberFormat(number)(this.locale);
+    }
+
+    numberFormatWithCurrency(number) {
+        return l10n.numberFormatWithCurrency(number)(this.locale, this.currency);
     }
 }
 
