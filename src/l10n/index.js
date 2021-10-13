@@ -1,19 +1,3 @@
-class l10n {
-    constructor() {
-        this.numberFormat = this.numberFormat.bind(this);
-        this.numberFormatWithCurrency = this.numberFormatWithCurrency.bind(this);
-    }
-
-    numberFormat(number) {
-        return locale => new Intl.NumberFormat(locale).format(number);
-    }
-
-    numberFormatWithCurrency(number) {
-        return (locale, currency) => new Intl.NumberFormat(locale, { 
-            style: 'currency', 
-            currency: currency 
-        }).format(number);
-    }
+export const numberFormat = options => locale => number => {
+    return new Intl.NumberFormat(locale).format(number, options);
 };
-
-export default new l10n;

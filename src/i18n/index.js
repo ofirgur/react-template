@@ -1,20 +1,11 @@
 import namespaces from './namespaces';
 
-class i18n {
-    constructor() {
-        this.translateFrom = this.translateFrom.bind(this);
-    }
+export const translateFrom = namespace => locale => key => {
+    const resources = namespaces[namespace]?.resources[locale];
 
-    translateFrom(namespace) {
-        return locale => key => {
-            const resources = namespaces[namespace]?.resources[locale];
+    return resources ? resources[key] : '';
+};
 
-            return resources ? resources[key] : '';
-        };
-    };
-}
-
-export default new i18n();
 
 
 

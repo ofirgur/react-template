@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
-import user from '../../user';
+import { setUserLocale } from '../../user/slice';
 
 import Krembo from './Krembo';
 
 const Index = () => {
+    const dispatch = useDispatch();
     const [locale, setLocale] = useState({ l: 'ja-JP', c: 'JPY'}); 
     
     const onClick = () => {
@@ -12,8 +14,7 @@ const Index = () => {
         const c = locale.l === 'ja-JP' ? 'EUR' : 'JPY'
         
         setLocale({ l , c });
-        user.setLocale(l);
-        user.setCurrency(c);
+        dispatch(setUserLocale(l));
     };
 
     return (

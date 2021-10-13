@@ -1,22 +1,20 @@
 import React from 'react';
 
-import useTranslate from '../../user/hooks/useTranslate';
-import useNumberFormatWithCurrency from '../../user/hooks/useNumberFormatWithCurrency';
-import user from '../../user';
+import { useTranslate } from '../../i18n/hooks';
+import { useNumberFormat } from '../../l10n/hooks';
 
 const Krembo = () => {
     const t = useTranslate('app');
-
+    const f = useNumberFormat({});
     const number = 123456.789;
-    const format = useNumberFormatWithCurrency(number);
     
 
     return (
         <div>
-            <div>user locale: {user.locale}</div>
-            <div>user currency: {user.currency}</div>
+            {/* <div>user locale: {user.locale}</div>
+            <div>user currency: {user.currency}</div> */}
             <p>{t('HelloWorld.Text')} is hello world</p>
-            <p>useFormat: {format}</p>
+            <p>useNumberFormat: {f(number)}</p>
 
             <p>number: {number}</p>
             <p>locale: de-DE</p>
