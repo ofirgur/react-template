@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
-import Translate from './Translate';
+import Home from './Home';
+import Localization from './Localization';
 
 const Layout = () => {
     return (
       <Switch>
-        <Route exact path="/" component={() => (<div><h1>App Layout</h1><Link to="/example">link to /example</Link></div>)} />
-        <Route path="/example" component={Translate} />
+        <Route exact path="/" component={Home} />
+        <Route path="/example" component={Localization} />
       </Switch>
     );
 };

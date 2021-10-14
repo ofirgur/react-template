@@ -9,9 +9,10 @@ export const appSlice = createSlice({
   },
   reducers: {
     setUser: (state, action) => {
-      const { locale, currency } = action.payload;
+      const { locale, currency, date } = action.payload;
       state.locale = locale;
       state.currency = currency;
+      state.date = date;
     },
     setUserLocale: (state, action) => {
       state.locale = action.payload;
@@ -41,4 +42,5 @@ export const types = {
 
 export const getUserLocale = state => state.user.locale;
 export const getUserCurrency = state => state.user.currency;
+export const getUserDate = state => state.user.date;
 

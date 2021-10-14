@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useTranslate } from '../../i18n/hooks';
-import { useNumberFormat } from '../../l10n/hooks';
+import { useTranslate } from '../../../i18n/hooks';
+import { useNumberFormat } from '../../../l10n/hooks';
 
-import { getUserLocale, getUserCurrency } from '../../user/slice';
+import { getUserLocale, getUserCurrency } from '../../../user/slice';
 
-const Krembo = () => {
+const Numbers = () => {
     const t = useTranslate('app');
     const f = useNumberFormat({ currency: true });
     const locale = useSelector(getUserLocale);
@@ -16,13 +16,15 @@ const Krembo = () => {
 
     return (
         <div>
-            <div>user locale: {locale}</div>
-            <div>user currency: {currency}</div>
-            <p>{t('HelloWorld.Text')} is hello world</p>
+            <h2>user locale: {locale}</h2>
+            <h2>user currency: {currency}</h2>
+            <h2>number: {number}</h2>
+            
+            <h4>useTranslate base on locale</h4>
+            <h4>{t('HelloWorld.Text')} (hello world)</h4>
 
-            <p>number: {number}</p>
-
-            <p>useNumberFormat: {f(number)}</p>
+            <h4>useNumberFormat base on locale</h4>
+            <h4>{f(number)}</h4>
 
             <p>locale: de-DE</p>
             <p>{new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(number)}</p>
@@ -32,5 +34,5 @@ const Krembo = () => {
     );
 };
 
-export default React.memo(Krembo);
+export default React.memo(Numbers);
 //export default Krembo;

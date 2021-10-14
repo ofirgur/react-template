@@ -3,7 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import { setUserLocale, setUserCurrency } from '../../user/slice';
 
-import Krembo from './Krembo';
+import Numbers from './Numbers';
+import DateTime from './DateTime';
 
 const Index = () => {
     const dispatch = useDispatch();
@@ -20,7 +21,10 @@ const Index = () => {
 
     return (
         <div>
-            <Krembo />
+            <Numbers />
+            <hr />
+            <DateTime />
+            <hr />
             <button onClick={onClick}>Change locale (de - ja)</button>
         </div>
     );

@@ -18,7 +18,8 @@ export const getUser = () => {
             status: 200,
             data: {
               locale: 'ja-JP',
-              currency: 'JPY'
+              currency: 'JPY',
+              date: '2021-10-14T11:34:07.148Z'
             }
           }
         }
