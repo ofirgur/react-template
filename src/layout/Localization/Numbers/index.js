@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useTranslate } from '../../../i18n/hooks';
-import { useNumberFormat } from '../../../l10n/hooks';
 
+import { useTranslate } from '../../../localization/i18n/hooks';
+import { useNumberFormat } from '../../../localization/l10n/hooks';
 import { getUserLocale, getUserCurrency } from '../../../user/slice';
 
 const Numbers = () => {

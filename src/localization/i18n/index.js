@@ -1,4 +1,4 @@
-import namespaces from '../localization/namespaces';
+import namespaces from '../namespaces';
 
 export const translateFrom = namespace => locale => key => {
     const resources = namespaces[namespace]?.resources[locale];

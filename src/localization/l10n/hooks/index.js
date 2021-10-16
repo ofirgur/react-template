@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getUserLocale, getUserCurrency } from '../../user/slice';
+import { getUserLocale, getUserCurrency } from '../../../user/slice';
 import { numberFormat, dateFormat } from '../index';
 
 export const useNumberFormat = options => {

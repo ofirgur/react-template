@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
-import { dateToISOString, isoStringToDate } from '../../../l10n';
-import { useDateFormat } from '../../../l10n/hooks';
+import { dateToISOString, isoStringToDate } from '../../../localization/l10n';
+import { useDateFormat } from '../../../localization/l10n/hooks';
 import { getUserDate } from '../../../user/slice'; 
 
 const Home = () => {
