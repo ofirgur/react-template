@@ -45,7 +45,6 @@ export const modulesRoutes = {};
 
     childRoutes.forEach(child => insert(child));
 })(siteMap);
-
 //console.log('modulesRoutes: ', modulesRoutes)
 
 
