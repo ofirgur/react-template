@@ -26,13 +26,12 @@ const siteMap = {
 
 export default siteMap;
 
-const siteMapCollection = {};
+export const modulesRoutes = {};
 const buildModulesRoutes = routes => {
   if(!routes) return;
 
-  siteMapCollection[routes.name] = {
+  modulesRoutes[routes.name] = {
     ...routes,
-    path: routes.pathname,
     childRoutes: undefined
   };
 
@@ -45,5 +44,6 @@ const buildModulesRoutes = routes => {
 };
 
 buildModulesRoutes(siteMap);
-export const modulesRoutes = siteMapCollection;
+console.log(modulesRoutes)
+
 
