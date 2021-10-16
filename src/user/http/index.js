@@ -1,5 +1,6 @@
 import { createApiAction } from '../../redux-http';
 import { setUser, types } from '../slice';
+import mock from '../mock/getUserMock.json';
 
 export const getUser = () => {
     return createApiAction({
@@ -16,11 +17,7 @@ export const getUser = () => {
           delay: 300,
           response: {
             status: 200,
-            data: {
-              locale: 'ja-JP',
-              currency: 'JPY',
-              date: '2021-10-14T11:34:07.148Z'
-            }
+            data: mock
           }
         }
     });
