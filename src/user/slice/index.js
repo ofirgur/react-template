@@ -4,31 +4,19 @@ import { LOCATION_CHANGE } from 'connected-react-router';
 export const appSlice = createSlice({
   name: 'user',
   initialState: {
-    locale: 'en',
-    currency: 'USD'
+    data: {}
   },
   reducers: {
     setUser: (state, action) => {
       const { locale, currency, date } = action.payload;
-      state.locale = locale;
-      state.currency = currency;
-      state.date = date;
+      state.data = action.payload;
     },
     setUserLocale: (state, action) => {
-      state.locale = action.payload;
+      state.data.locale = action.payload;
     },
     setUserCurrency: (state, action) => {
-      state.currency = action.payload;
+      state.data.currency = action.payload;
     }
-  },
-  extraReducers: (builder) => {
-    builder
-    .addDefaultCase((state, action) => {
-        switch(action.type) {
-            case LOCATION_CHANGE:
-                console.log('LOCATION_CHANGE')
-        }
-    });
   }
 });
 
@@ -40,7 +28,9 @@ export const types = {
   GET_USER: 'GET_USER'
 };
 
-export const getUserLocale = state => state.user.locale;
-export const getUserCurrency = state => state.user.currency;
-export const getUserDate = state => state.user.date;
+const getUserState = state => state.user.data
+
+export const getUserLocale = state => getUserState(state).locale;
+export const getUserCurrency = state => getUserState(state).currency;
+export const getUserDate = state => getUserState(state).date;
 
