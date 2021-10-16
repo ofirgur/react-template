@@ -25,7 +25,18 @@ const Index = () => {
             <hr />
             <DateTime />
             <hr />
-            <button onClick={onClick}>Change locale (de - ja)</button>
+            <button 
+                onClick={onClick}
+                style={{
+                    width: '100%',
+                    color: 'white',
+                    height: 100,
+                    background: 'blue',
+                    fontSize: 20
+                }}
+            >
+                CHANGE LOCALE (de - ja)
+            </button>
         </div>
     );
 };

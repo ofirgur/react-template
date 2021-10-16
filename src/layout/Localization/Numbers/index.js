@@ -18,11 +18,12 @@ const Numbers = () => {
         <div>
             <h2>user locale: {locale}</h2>
             <h2>user currency: {currency}</h2>
-            <h2>number: {number}</h2>
-            
+            <hr />
+
             <h4>useTranslate base on locale</h4>
             <h4>{t('HelloWorld.Text')} (hello world)</h4>
 
+            <h4>number: {number}</h4>
             <h4>useNumberFormat base on locale</h4>
             <h4>{f(number)}</h4>
 
