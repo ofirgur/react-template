@@ -1,6 +1,6 @@
 import { createApiAction } from '../../redux-http';
 import { setUser, types } from '../slice';
-import mock from '../mock/getUserMock.json';
+import mock from './mock/getUserMock.json';
 
 export const getUser = () => {
     return createApiAction({
