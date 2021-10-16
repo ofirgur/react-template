@@ -32,7 +32,8 @@ const Index = () => {
                     color: 'white',
                     height: 100,
                     background: 'blue',
-                    fontSize: 20
+                    fontSize: 20,
+                    cursor: 'pointer'
                 }}
             >
                 CHANGE LOCALE (de - ja)
