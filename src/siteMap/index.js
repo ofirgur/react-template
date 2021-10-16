@@ -30,7 +30,12 @@ export const modulesRoutes = {};
 
 (tree => {
     const insert = t => {
-        if(t) modulesRoutes[t.name] = tree;
+        if(!t) return;
+
+        const { name } = t;
+        if(!name) return;
+
+        modulesRoutes[name] = { ...t, childRoutes: undefined };
     };
     
     insert(tree);
