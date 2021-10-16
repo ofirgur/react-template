@@ -7,6 +7,7 @@ import { store, history } from './redux/store';
 import App from './app';
 
 import './config';
+import './siteMap';
 
 const root = (
     <Provider store={store}>
