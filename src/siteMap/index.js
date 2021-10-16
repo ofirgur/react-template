@@ -27,23 +27,20 @@ const siteMap = {
 export default siteMap;
 
 export const modulesRoutes = {};
-const buildModulesRoutes = routes => {
-  if(!routes) return;
 
-  modulesRoutes[routes.name] = {
-    ...routes,
-    childRoutes: undefined
-  };
+(tree => {
+    const insert = t => {
+        if(t) modulesRoutes[t.name] = tree;
+    };
+    
+    insert(tree);
 
-  const { childRoutes } = routes;
-  if(childRoutes) {
-    for(let i = 0; i < childRoutes.length; i++) {
-      buildModulesRoutes(childRoutes[i]);
-    }
-  }
-};
+    const { childRoutes } = tree;
+    if(!childRoutes) return;
 
-buildModulesRoutes(siteMap);
-console.log(modulesRoutes)
+    childRoutes.forEach(child => insert(child));
+})(siteMap);
+
+//console.log('modulesRoutes: ', modulesRoutes)
 
 
