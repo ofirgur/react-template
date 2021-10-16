@@ -39,7 +39,7 @@ ReactDOM.render(
 // 14. eligibility
 // 15. __DEV__ flag for mock
 // 16. icons (where from?)
-// 17. i18n, l10n, g11n
+// 17. i18n, l10n, g11n // *****done
 // 18. array reduce
 // 19. formik
 // 20. code split
