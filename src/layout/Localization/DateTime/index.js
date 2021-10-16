@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { dateToISOString, isoStringToDate } from '../../../localization/l10n';
-import { useDateFormat } from '../../../localization/l10n/hooks';
+import { dateToISOString, isoStringToDate } from '../../../intl/l10n';
+import { useDateFormat } from '../../../intl/l10n/hooks';
 import { getUserDate } from '../../../user/slice'; 
 
 const Home = () => {
