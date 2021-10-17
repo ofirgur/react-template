@@ -20,6 +20,14 @@ const siteMap = {
             title: 'Offers.Text',
             icon: '',
             childRoutes: []
+        },
+        {
+            key: 'Activity', 
+            name: 'activity',
+            pathname: '/activity',
+            title: 'Activity.Text',
+            icon: '',
+            childRoutes: []
         }
     ]
 };
