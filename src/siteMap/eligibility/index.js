@@ -76,9 +76,9 @@ export const setEligibleRoutes = eligibility => routes => {
 
     const eRoutes = {
         ...routes,
-        childRoutes: childRoutes
+        /*childRoutes: childRoutes
             .map(mapToEligibleChildRoutes(eligibility))
-            .filter(filterByEligibleChildRoutes(eligibility))
+            .filter(filterByEligibleChildRoutes(eligibility))*/
     };
     
     return normalizeRoutesTree(eRoutes);
