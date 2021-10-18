@@ -27,6 +27,30 @@ export const filterByEligibleChildRoutes = eligibility => route => {
     return childRoutes.length > 0 || isEligibleModule(eligibility)(route);
 };
 
+export const buildBreadcrumbs = (route, parent) => {  
+    if(!route) return;
+
+    const breadcrumbs = { 
+        pathname: route.pathname, 
+        title: route.title 
+    };
+
+    if(!parent) return [breadcrumbs];
+
+    return [...parent.breadcrumbs, breadcrumbs];
+};
+
+export const buildRouteDetails = (route, parent) => {
+    if(!route) return;
+
+    const breadcrumbs = buildBreadcrumbs(route, parent);
+
+    return {
+        ...route,
+        breadcrumbs
+    };
+};
+
 export const normalizeRoutesTree = (routes, parent) => {
     if(!routes) return;
 
