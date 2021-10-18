@@ -1,9 +1,9 @@
 export const isEligibleModule = eligibility => module => {
     if(!eligibility || !module) return;
 
-    const { static, key } = module;
+    const { isStatic, key } = module;
 
-    return static || eligibility[key];
+    return isStatic || eligibility[key];
 };
 
 export const mapToEligibleChildRoutes = eligibility => route => {
@@ -76,9 +76,9 @@ export const setEligibleRoutes = eligibility => routes => {
 
     const eRoutes = {
         ...routes,
-        /*childRoutes: childRoutes
+        childRoutes: childRoutes
             .map(mapToEligibleChildRoutes(eligibility))
-            .filter(filterByEligibleChildRoutes(eligibility))*/
+            .filter(filterByEligibleChildRoutes(eligibility))
     };
     
     return normalizeRoutesTree(eRoutes);

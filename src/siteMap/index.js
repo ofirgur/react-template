@@ -11,7 +11,7 @@ const siteMap = {
             pathname: '/myholdings',
             title: 'MyHoldings.Text',
             icon: '',
-            childRoutes: []
+            childRoutes: [{}]
         },
         {
             key: 'Offers', 
@@ -19,7 +19,7 @@ const siteMap = {
             pathname: '/offers',
             title: 'Offers.Text',
             icon: '',
-            childRoutes: []
+            childRoutes: [{}]
         },
         {
             key: 'Activity', 
@@ -27,12 +27,19 @@ const siteMap = {
             pathname: '/activity',
             title: 'Activity.Text',
             icon: '',
-            childRoutes: []
+            childRoutes: [{}]
         }
     ]
 };
 
 export default siteMap;
+
+// import { setEligibleRoutes } from './eligibility';
+// console.log('setEligibleRoutes: ', setEligibleRoutes({
+//     Home: true,
+//     Offers: true,
+//     MyHoldings: true
+// })(siteMap));
 
 export const modulesRoutes = {};
 
