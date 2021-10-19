@@ -11,7 +11,7 @@ export const mapToEligibleChildRoutes = eligibility => route => {
 
     const { childRoutes } = route;
     if(!childRoutes) return route;
-    
+
     return {                        
         ...route,
         childRoutes: childRoutes.filter(isEligibleModule(eligibility))
@@ -68,18 +68,48 @@ export const normalizeRoutesTree = (routes, parent) => {
     };
 };
 
-export const setEligibleRoutes = eligibility => routes => {
+export const buildEligibleRoutes = eligibility => routes => {
     if(!routes) return;
     
     const { childRoutes } = routes;
-    if(!childRoutes) return;
-
+    if(!childRoutes) return routes;
+    
     const eRoutes = {
         ...routes,
         childRoutes: childRoutes
             .map(mapToEligibleChildRoutes(eligibility))
-            .filter(filterByEligibleChildRoutes(eligibility))
+            //.filter(filterByEligibleChildRoutes(eligibility))
     };
     
     return normalizeRoutesTree(eRoutes);
 };
+
+export const searchRoute = (routes, search) => {
+
+    if(!routes || !find) return;
+
+    const { key, value } = search;
+    if(routes[key] === value) return routes;
+
+    const { childRoutes } = routes;
+    if(!childRoutes) return;
+
+    let result;
+    for(let i = 0; !result && i < childRoutes.length; i++) {
+        result = searchRoute(childRoutes[i], search);
+    }
+
+    return result;
+};
+
+export const searchRouteFallback = (routes, pathname) => {
+    const route = searchRoute(routes, { key: 'pathname', value: pathname });   
+    if (route) return route;
+    
+    const pathArray = pathname.split('/');
+    if(pathArray.length === 1) return;
+
+    const parentPathname = pathArray.slice(0, pathArray.length - 1).join('/');
+    return searchRouteFallback(routes, parentPathname);
+};
+

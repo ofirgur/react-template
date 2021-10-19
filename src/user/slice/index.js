@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { LOCATION_CHANGE } from 'connected-react-router';
 
 export const appSlice = createSlice({
   name: 'user',
@@ -8,7 +7,6 @@ export const appSlice = createSlice({
   },
   reducers: {
     setUser: (state, action) => {
-      const { locale, currency, date } = action.payload;
       state.data = action.payload;
     },
     setUserLocale: (state, action) => {

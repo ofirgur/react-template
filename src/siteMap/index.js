@@ -34,13 +34,6 @@ const siteMap = {
 
 export default siteMap;
 
-// import { setEligibleRoutes } from './eligibility';
-// console.log('setEligibleRoutes: ', setEligibleRoutes({
-//     Home: true,
-//     Offers: true,
-//     MyHoldings: true
-// })(siteMap));
-
 export const modulesRoutes = {};
 
 (tree => {
