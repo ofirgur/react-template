@@ -112,7 +112,5 @@ export const searchRouteFallback = (routes, pathname) => {
     return searchRouteFallback(routes, parentPathname);
 };
 
-export const getEligibleRoute = (routes, search) => {
-    return searchRoute(routes, search);
-};
+
 
