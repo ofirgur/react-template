@@ -1,18 +1,18 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
+import { BrowserRouter } from 'react-router-dom';
 
-import { store, history } from './redux/store';
+import { store } from './redux/store';
 import App from './app';
 
 import './config';
 
 const root = (
     <Provider store={store}>
-        <ConnectedRouter history={history}>
+        <BrowserRouter>
             <App />
-        </ConnectedRouter>
+        </BrowserRouter>
     </Provider>
 );
 

@@ -1,7 +1,5 @@
-import { routerMiddleware } from 'connected-react-router';
-
-const createRootMiddleware = history => ([
-    routerMiddleware(history)
+const createRootMiddleware = () => ([
+    
 ]);
 
 export default createRootMiddleware;
