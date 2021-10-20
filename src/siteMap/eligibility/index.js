@@ -85,7 +85,6 @@ export const buildEligibleRoutes = eligibility => routes => {
 };
 
 export const searchRoute = (routes, search) => {
-
     if(!routes || !find) return;
 
     const { key, value } = search;
@@ -104,7 +103,7 @@ export const searchRoute = (routes, search) => {
 
 export const searchRouteFallback = (routes, pathname) => {
     const route = searchRoute(routes, { key: 'pathname', value: pathname });   
-    if (route) return route;
+    if(route) return route;
     
     const pathArray = pathname.split('/');
     if(pathArray.length === 1) return;

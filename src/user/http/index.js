@@ -9,7 +9,7 @@ export const getUser = () => {
         type: types.GET_USER,
         url: 'https://jsonplaceholder.typicode.com/users',
         data: {},
-        actions: [setUser, setEligibleRoutes, setCurrentRoute],
+        actions: [setUser, setEligibleRoutes],
         errors: [],
         onSuccess: res => {},
         onFailure: err => {},
