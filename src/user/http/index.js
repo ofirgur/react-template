@@ -1,6 +1,6 @@
 import { createApiAction } from '../../redux-http';
 import { setUser, types } from '../slice';
-import { setEligibleRoutes, setCurrentRoute } from '../../siteMap/slice';
+import { setEligibleRoutes } from '../../siteMap/slice';
 import mock from './mock/getUserMock.json';
 
 export const getUser = () => {
