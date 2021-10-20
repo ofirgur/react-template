@@ -1,7 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { LOCATION_CHANGE } from 'connected-react-router';
-
-//import { searchRouteFallback } from '../../siteMap/eligibility'; 
+import { createSlice } from '@reduxjs/toolkit'; 
 
 export const appSlice = createSlice({
   name: 'app',
