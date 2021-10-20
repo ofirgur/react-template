@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm t",
-    "start": "webpack serve --config webpack.config.js"
+    "start": "webpack serve --config webpack.config.js --port 3000"
   },
   "repository": {
     "type": "git",
