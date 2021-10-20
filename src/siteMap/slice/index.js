@@ -13,7 +13,6 @@ export const siteMapSlice = createSlice({
     },
     setCurrentRoute: (state, { payload }) => {
       const { pathname } = payload;
-
       state.currentRoute = searchRouteFallback(state.eligibleRoutes, pathname);
     },
   }
@@ -25,5 +24,6 @@ export default siteMapSlice.reducer;
 
 export const getState = state => state.siteMap;
 export const getEligibleRoutes = state => getState(state).eligibleRoutes;
+export const getCurrentRoute = state => getState(state).currentRoute;
 
 
