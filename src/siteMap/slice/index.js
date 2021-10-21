@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import siteMap from '../index'; 
+import siteMap from '..'; 
+import { handleDeeplink } from '../deeplinks';
 import { buildEligibleRoutes, searchRouteFallback, searchRoute } from '../eligibility';
 
 export const siteMapSlice = createSlice({
@@ -27,6 +28,9 @@ export const getEligibleRoutes = state => getState(state).eligibleRoutes;
 export const getCurrentRoute = state => getState(state).currentRoute;
 export const getEligibleRoute = state => search => {
   return searchRoute(getState(state).eligibleRoutes, search);
+};
+export const getDeeplink = state => (deeplinks, location) => {
+  return handleDeeplink(getState(state).eligibleRoutes)(deeplinks, location);
 };
 
 

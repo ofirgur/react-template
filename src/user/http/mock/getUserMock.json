@@ -3,6 +3,13 @@
     "currency": "JPY",
     "date": "2021-10-14T11:34:07.148Z",
     "eligibility": {
-        "Home": true
+        "Home": {
+            "isEligible": true 
+        }
+    },
+    "deeplinks": {
+        "offers": {
+            "key": "Offers"
+        }
     }
 }

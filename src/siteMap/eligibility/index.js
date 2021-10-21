@@ -1,9 +1,11 @@
+import '../deeplinks';
+
 export const isEligibleModule = eligibility => module => {
     if(!eligibility || !module) return;
 
     const { isStatic, key } = module;
 
-    return isStatic || eligibility[key];
+    return isStatic || eligibility[key]?.isEligible;
 };
 
 export const mapToEligibleChildRoutes = eligibility => route => {

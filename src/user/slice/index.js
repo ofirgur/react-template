@@ -30,4 +30,5 @@ export const getUserState = state => state.user.data
 export const getUserLocale = state => getUserState(state).locale;
 export const getUserCurrency = state => getUserState(state).currency;
 export const getUserDate = state => getUserState(state).date;
+export const getUserDeeplinks = state => getUserState(state).deeplinks;
 

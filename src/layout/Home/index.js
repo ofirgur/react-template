@@ -1,11 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link, Redirect } from 'react-router-dom'; 
 
-import { modulesRoutes } from '../../siteMap'; 
+import { modulesRoutes } from '../../siteMap';
+import { useDeeplink } from '../../siteMap/hooks';
 
 const { myholdings, offers, activity } = modulesRoutes;
 
 const Home = () => {
+    const deeplink = useDeeplink();
+    if(deeplink) 
+        return <Redirect to={deeplink.pathname} />
+
     return (
         <div>
             <h1>App Layout</h1>

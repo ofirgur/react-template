@@ -8,6 +8,7 @@ import ModulesContainer from './modulesContainer';
 const Layout = () => {
     const dispatch = useDispatch();
     const location = useLocation();
+    console.log('location: ', location)
 
     useEffect(() => {
       dispatch(setCurrentRoute(location));
