@@ -26,10 +26,10 @@ export default siteMapSlice.reducer;
 export const getState = state => state.siteMap;
 export const getEligibleRoutes = state => getState(state).eligibleRoutes;
 export const getCurrentRoute = state => getState(state).currentRoute;
-export const getEligibleRoute = state => search => {
+export const getEligibleRoute = search => state => {
   return searchRoute(getState(state).eligibleRoutes, search);
 };
-export const getDeeplink = state => (deeplinks, location) => {
+export const getDeeplink = (deeplinks, location) => state => {
   return handleDeeplink(getState(state).eligibleRoutes)(deeplinks, location);
 };
 

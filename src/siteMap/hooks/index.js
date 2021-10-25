@@ -7,7 +7,7 @@ import { getDeeplink } from '../../siteMap/slice';
 export const useDeeplink = () => {
     const location  = useLocation();
     const deeplinks = useSelector(getUserDeeplinks);
-    const deeplink = useSelector(state => getDeeplink(state)(deeplinks, location));
+    const deeplink = useSelector(getDeeplink(deeplinks, location));
 
     return deeplink;
 }
