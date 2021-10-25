@@ -14,7 +14,8 @@ const ModulesContainer = () => {
         <Route exact path={home.pathname} component={Home} />
         <Route path={myholdings.pathname} component={Localization} />
         <Route path={offers.pathname} component={() => <div>Offers</div>} />
-        <Route path={activity.pathname} component={Template} />
+        <Route path={activity.pathname} component={() => <div>Activity</div>} />
+        <Route path="/template" component={Template} />
       </Switch>
     );
 };
