@@ -15,7 +15,7 @@ export const getUser = () => {
         onFailure: err => {},
         mock: {
           enable: __USE_MOCK__,
-          delay: 300,
+          delay: 1000,
           response: {
             status: 200,
             data: mock
