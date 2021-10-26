@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 import appSlice from '../../app/slice';
 import userSlice from '../../user/slice';
 import httpSlice from '../../redux-http/slice';
@@ -9,7 +11,9 @@ const createRootReducer = () => ({
     user: userSlice,
     http: httpSlice,
     siteMap: siteMapSlice,
-    template: templateSlice
+    modules: combineReducers({
+        template: templateSlice
+    })
 });
 
 export default createRootReducer;

@@ -20,7 +20,7 @@ export const types = {
   GET_DATA: 'FETCH_DATA'
 };
 
-export const getState = state => state.template;
+export const getState = state => state.modules.template;
 export const getData = state => getState(state).data;
 
 
