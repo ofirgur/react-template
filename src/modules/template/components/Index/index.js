@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Index = () => {
     return (
-        <div>Index</div>
+        <div>Template Index</div>
     );
 };
 
