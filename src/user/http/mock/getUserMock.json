@@ -5,6 +5,9 @@
     "eligibility": {
         "Home": {
             "isEligible": true 
+        },
+        "Template": {
+            "isEligible": true 
         }
     },
     "deeplinks": {
