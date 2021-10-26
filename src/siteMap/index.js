@@ -1,3 +1,5 @@
+import offersChildRoutes from './childRoutes/offersChildRoutes';
+
 const siteMap = {
     key: 'Home',
     name: 'home',
@@ -19,7 +21,7 @@ const siteMap = {
             pathname: '/offers',
             title: 'Offers.Text',
             icon: '',
-            childRoutes: [{}]
+            childRoutes: offersChildRoutes
         },
         {
             key: 'Activity', 
@@ -36,23 +38,25 @@ export default siteMap;
 
 export const modulesRoutes = {};
 
-(tree => {
-    const insert = t => {
-        if(!t) return;
+const insert = t => {
+    if(!t) return;
 
-        const { name } = t;
-        if(!name) return;
+    const { name } = t;
+    if(!name) return;
 
-        modulesRoutes[name] = { ...t, childRoutes: undefined };
-    };
-    
+    modulesRoutes[name] = t;
+};
+
+const buildModulesRoutes = tree => {
     insert(tree);
 
-    const { childRoutes } = tree;
+    let { childRoutes } = tree;
     if(!childRoutes) return;
 
-    childRoutes.forEach(child => insert(child));
-})(siteMap);
+    childRoutes.forEach(child => buildModulesRoutes(child));
+    childRoutes = undefined;
+};
 
+buildModulesRoutes(siteMap);
 
 
