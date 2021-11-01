@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import { Route } from 'react-router-dom';
 import { injectReducer } from "../../redux/store";
 
-
 const LazyRoute = ({ path, component, reducer }) => {
     const inject = async () => {
         const [componentRes, reducerRes] = await Promise.all([
