@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+import LazyRoute from '../../conponents/LazyRoute';
 import { modulesRoutes } from '../../siteMap';
 import OffersIndex from './OffersIndex';
-import Template from '../../modules/template';
 
 const { offers, template } = modulesRoutes;
 
@@ -11,7 +11,16 @@ const Offers = () => {
     return (
       <Switch>
         <Route exact path={offers.pathname} component={OffersIndex} />
-        <Route path={template.pathname} component={Template} />
+        <LazyRoute 
+          path={template.pathname}
+          component={{
+            promise: () => import('../../modules/template')
+          }}
+          reducer={{
+            name: 'template',
+            promise: () => import('../../modules/template/slice')
+          }}
+        />
       </Switch>
     );
 };

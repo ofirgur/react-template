@@ -4,16 +4,20 @@ import appSlice from '../../app/slice';
 import userSlice from '../../user/slice';
 import httpSlice from '../../redux-http/slice';
 import siteMapSlice from '../../siteMap/slice';
-import templateSlice from '../../modules/template/slice';
 
-const createRootReducer = () => ({
-    app: appSlice,
-    user: userSlice,
-    http: httpSlice,
-    siteMap: siteMapSlice,
-    modules: combineReducers({
-        template: templateSlice
-    })
-});
+const createReducer = (asyncReducers = {}) => {
+    // no reducers yet - setting default one (avoid redux error)
+    if (Object.keys(asyncReducers) === 0) return;
+    // setting reducers
+    return combineReducers(asyncReducers);
+};
 
-export default createRootReducer;
+export default (asyncReducers = {}) =>{
+    return combineReducers({
+        app: appSlice,
+        user: userSlice,
+        http: httpSlice,
+        siteMap: siteMapSlice,
+        modules: createReducer(asyncReducers)
+    });
+}; 

@@ -1,5 +1,3 @@
-const createRootMiddleware = () => ([
+export default () => ([
     
 ]);
-
-export default createRootMiddleware;

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useTranslate } from '../../../intl/i18n/hooks';
 import modules from '../modules';
+
+//import Localization from '../../Localization';
+const Localization = React.lazy(() => import('../../Localization'));
 
 const OffersIndex = () => {
     const t = useTranslate('app');
@@ -16,6 +19,10 @@ const OffersIndex = () => {
             <Link key={m.key} to={m.pathname}>{t(m.title)}</Link>
           ))
         }
+        <br />
+        <Suspense fallback={<div>Splitting...</div>}>
+          <Localization />
+        </Suspense>
       </div>
     );
 };
