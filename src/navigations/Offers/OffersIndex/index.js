@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslate } from '../../../intl/i18n/hooks';
 import modules from '../modules';
 
-//import Localization from '../../Localization';
-const Localization = React.lazy(() => import('../../Localization'));
+const Localization = React.lazy(() => import('../../../conponents/Localization'));
 
 const OffersIndex = () => {
     const t = useTranslate('app');
