@@ -10,12 +10,12 @@ export const store = configureStore({
     }
 });
 
+// redux code splitting
 store.asyncReducers = {};
+export const injectReducer = (key, asyncReducer) => {
+    if (store.asyncReducers.hasOwnProperty(key)) 
+        return;
 
-export const injectReducer = (name, reducer) => {
-    // ignore injected reducers if exists
-    if (store.asyncReducers.hasOwnProperty(name)) return;
-
-    store.asyncReducers[name] = reducer;
+    store.asyncReducers[key] = asyncReducer;
     store.replaceReducer(createRootReducer(store.asyncReducers));
 };
