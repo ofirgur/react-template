@@ -21,7 +21,7 @@ ReactDOM.render(
     document.getElementById('app')
 );
 
-// TO DO 000 999 888 fest
+// TO DO MAIN
 
 // 1. npm run build & webpack configuration
 // 2. react-router-dom refresh // *****done
